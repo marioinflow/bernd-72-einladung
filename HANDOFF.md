@@ -1,4 +1,4 @@
-# Übergabe – Stand 23.09.2026 (Copy-Überarbeitung, live)
+# Übergabe – Stand 23.09.2026 (live, an Bernd verschickt)
 
 ## Ziel / bindend
 Private Einladungs-One-Page zu Bernds 72. Geburtstag. Sa 14.11.2026 ab 18:00, Sayuko – The Sushi Lounge, Friedhofstraße 26, 74847 Obrigheim. Zusage bis 15.10.2026, Band Pinball Wizard. Versand per WhatsApp → Phone-Ansicht hat Vorrang.
@@ -17,13 +17,13 @@ https://bernd-72-einladung.vercel.app (Code `Bernd72!`, nur Optik, kein Schutz).
 ## Sektionen
 Code-Sperre → Hero „PEPPERLS … laden ein“ + „zweimal Grund zu feiern“ → Banner (erster Grund, 72) → 3 Jahre Vater & Sohn (zweiter Grund) → Gemeinsam feiern → Galerie (6 Bilder, Lightbox) → Sayuko-Blüte → Leit-Linie Ort/Film/Band mit Sayuko-Logo-Reveal als Scroll-Canvas im Hintergrund → Auf einen Blick → Zusage.
 
-## ⚠ Zwei Stände
-- **Live** (`dpl_Adz52G8X…`, 23.09. früh): Copy-Überarbeitung, Code → direkt Hero, kein Intro.
-- **Lokal zusätzlich**: „72“-Fotokachel-Intro + animiertes Login-Banner aus einer Codex-Sitzung (05:24–06:00), Auftrag in `ANPASSUNG-STAERKERES-MODELL.md`, noch nicht abgenommen, nicht committet, nicht deployt. Copy-Änderungen sind darin erhalten.
+## Stand live (23.09. 12:40, `elulkjd2s`, committet)
+Live = lokal = Git `main`. Enthält: „72“-Intro + Login-Banner, Hero-Zeile „72 Jahre Geschichten und eine, die gerade erst beginnt. Ein Einblick, was euch erwartet.“, Band als kompakte Karte (Live-Badge, Equalizer, Chips, Text „Sie sorgen für die Musik, ihr für die gute Laune.“), 4 Cards einheitlich (Apple-Stil), Aftermovie am Seitenende (einmal, lautlos, stoppt auf „72“, KI-Wasserzeichen per delogo weg) mit Scroll-Halt (`.aftermovie-pin`, sticky + `::after`-Spacer), Overlay „Für einen unvergesslichen Abend fehlt nur noch eure Zusage.“ + Button „Wir kommen gern“. Linkvorschau neu: `assets/einladung-pepperls-og.jpg` aus `scripts/og-preview.html` (rendern über den Dev-Server, nicht per file://, sonst fehlen die Fonts).
+Link ging am 23.09. per WhatsApp an Bernd (`/?v=3`, WhatsApp cacht Vorschau pro URL). Warten auf sein Feedback.
 
 ## Offen
-- Echter iPhone-Test (iOS Safari, Touch, Linkvorschau in WhatsApp).
-- Linkvorschau-Bild (`einladung-bernd-72-wasserturm.jpg`, Bernd-Porträt) passt nicht mehr zum Pepperls-Hero.
+- Bernds Feedback einarbeiten.
+- Echter iPhone-Test (iOS Safari, Touch). Band-Video ist weichgezeichnetes Hintergrundmaterial, echtes Material gibt es nicht.
 - Claim „Come in. Feel at home.“ steht schwach im letzten Reveal-Frame, Bestätigung fehlt. Logo-Treue gegen `mark.png` prüfen.
 - Reduzierte Bewegung: Reveal-Hintergrund fehlt ganz (evtl. statisches Endbild).
 - Wortwiederholung „diesen Abend“ (Hero, Gemeinsam, Zitat, Sayuko) und „Schön, wenn ihr …“ (Signoff + Zusage) aus der Copy-Runde, von Mario noch nicht bewertet.

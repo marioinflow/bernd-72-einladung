@@ -100,7 +100,7 @@ const html = `<!doctype html>
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Bernds Porträt und die Einladung zum 72. Geburtstag am 14. November 2026">
+  <meta property="og:image:alt" content="Die Pepperls laden ein: Bernd mit seiner Frau und Fabian, Einladung zu Bernds 72. Geburtstag am 14. November 2026">
   ${data.publicUrl ? `<meta property="og:url" content="${e(data.publicUrl)}">` : ''}
   ${data.publicUrl ? `<link rel="canonical" href="${e(data.publicUrl)}">` : ''}
   <meta name="twitter:card" content="summary_large_image">
@@ -113,6 +113,7 @@ const html = `<!doctype html>
   <link rel="preload" href="${e(media.heroBg)}" as="image" media="(min-width: 701px)">
   <link rel="preload" href="assets/familie-freigestellt-640.webp" as="image" media="(max-width: 700px)">
   <link rel="preload" href="assets/familie-freigestellt-1152.webp" as="image" media="(min-width: 701px)">
+  <link rel="preload" href="${e(media.logo)}" as="image">
   <link rel="stylesheet" href="styles.css">
   <script src="vendor/gsap.min.js" defer></script>
   <script src="vendor/ScrollTrigger.min.js" defer></script>
@@ -128,6 +129,11 @@ const html = `<!doctype html>
       <form id="access-form"><label for="access-code">Einladungscode</label><input id="access-code" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" required aria-describedby="access-error"><p id="access-error" role="alert"></p><button type="submit" class="btn btn-primary btn-block">Einladung öffnen <span class="ico">${arrow}</span></button></form>
       <noscript>Bitte aktiviert JavaScript, um die Einladung mit eurem Code zu öffnen.</noscript>
     </div><p class="access-footer">14. November 2026 · Sayuko, Obrigheim</p></div>
+  </section>
+
+  <section class="access-confirmation" hidden aria-label="Einladung geöffnet" aria-live="polite">
+    <div class="access-confirmation-mark" aria-hidden="true"><img src="${e(media.logo)}" width="862" height="1023" alt=""></div>
+    <p class="access-confirmation-copy"><span>Come in.</span><span>Feel at home.</span></p>
   </section>
 
   <section class="intro" hidden aria-label="Bernd wird 72">
@@ -156,7 +162,7 @@ const html = `<!doctype html>
         <img class="hero-family" src="assets/familie-freigestellt-1152.webp" srcset="assets/familie-freigestellt-640.webp 640w, assets/familie-freigestellt-1152.webp 1152w" sizes="(max-width: 700px) 96vw, 980px" width="1152" height="829" alt="Bernd mit seiner Frau und Fabian, lachend mit Sonnenbrillen" fetchpriority="high">
       </div>
       <div class="hero-bottom">
-        <p class="hero-sub">Wir haben gleich zweimal Grund zu feiern.<br>Hiermit möchten wir euch schon einmal auf den Abend einstimmen.</p>
+        <p class="hero-sub">Wir haben gleich zweimal Grund zu feiern.<br>72 Jahre Geschichten und eine, die gerade erst beginnt.<br>Ein Einblick, was euch erwartet.</p>
         <p class="hero-meta"><time datetime="${e(event.date)}T${e(event.time)}">${e(day)}, ${e(eventDay)} · ab ${e(event.time)} Uhr</time><span class="hero-meta-dot" aria-hidden="true"></span><span>Sayuko, Obrigheim</span></p>
         <a class="hero-discover" href="#grund-1">Den Abend entdecken <span aria-hidden="true">↓</span></a>
       </div>
@@ -289,10 +295,12 @@ const html = `<!doctype html>
           <span class="step-dot" aria-hidden="true"></span>
           <p class="step-num">03 · Musik für den Abend</p>
           <div class="band" data-clip>
-            <video class="band-video" muted loop playsinline preload="none" poster="${e(media.bandBackgroundPoster)}" aria-hidden="true" tabindex="-1"><source data-src="${e(media.bandBackground)}" type="video/mp4"></video>
+            <div class="band-media"><video class="band-video" muted loop playsinline preload="none" poster="${e(media.bandBackgroundPoster)}" aria-hidden="true" tabindex="-1"><source data-src="${e(media.bandBackground)}" type="video/mp4"></video></div>
             <div class="band-copy">
+              <p class="band-live"><span class="band-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Live am Abend</p>
               <h3 class="band-name">${e(event.band)}</h3>
-              <p>${e(copy.music)}</p>
+              <p class="band-text">${e(copy.music)}</p>
+              <ul class="band-tags"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg>Live-Band</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>Im Sayuko, Obrigheim</li></ul>
             </div>
           </div>
         </article>
@@ -304,22 +312,21 @@ const html = `<!doctype html>
     <div class="journey" aria-hidden="true"><i></i></div>
     <section class="details" id="details" aria-labelledby="details-heading">
       <div class="wrap">
-        <p class="eyebrow">Wir sehen uns hier</p>
-        <h2 id="details-heading" class="details-heading">Der Abend auf einen Blick.</h2>
-        <div class="facts">
-          <div class="fact"><p class="fact-big"><span class="mask"><span>${e(dayNumber)}.</span></span></p><p class="fact-label">${e(month)} ${e(year)}<br>${e(day)}</p></div>
-          <div class="fact"><p class="fact-big"><span class="mask"><span>${e(event.time)}</span></span></p><p class="fact-label">Uhr<br>Beginn des Abends</p></div>
-          <div class="fact fact-place"><p class="fact-place-name"><span class="mask"><span>Sayuko</span></span></p><address class="fact-label">${e(event.street)}<br>${e(event.city)}</address>
-            <a class="btn btn-secondary" href="${e(event.mapsUrl)}" target="_blank" rel="noopener noreferrer">Anfahrt öffnen <span class="ico">${arrow}</span></a></div>
+        <p class="eyebrow">Ein Abend für Bernd.</p>
+        <h2 id="details-heading" class="details-heading">Am 14. November wird gefeiert.</h2>
+        <div class="facts event-cards">
+          <article class="fact event-card event-card-date"><div class="event-card-head"><span class="event-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span><p class="event-card-label">Der Anlass</p></div><time class="event-card-value event-date" datetime="${e(event.date)}"><span class="mask"><span>${e(dayNumber)}</span></span><small>${e(month)}</small></time><p class="event-card-meta">${e(day)} · ${e(year)}</p></article>
+          <article class="fact event-card event-card-time"><div class="event-card-head"><span class="event-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><p class="event-card-label">Auftakt</p></div><p class="event-card-value event-time"><span class="mask"><span>${e(event.time)}</span></span><small>Uhr</small></p><p class="event-card-meta">Ankommen, anstoßen, zusammen sein.</p></article>
+          <article class="fact event-card event-card-note"><div class="event-card-head"><span class="event-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14l-7 8zM12 12v8M8 20h8"/></svg></span><p class="event-card-label">Was uns erwartet</p></div><p class="event-card-value event-note">Sushi &amp; Drinks</p><p class="event-card-meta">Und gute Geschichten.</p></article>
+          <article class="fact event-card event-card-place"><div class="event-card-head"><span class="event-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></span><p class="event-card-label">Der Ort</p></div><address><strong class="event-card-value">Sayuko</strong><span class="event-card-meta">${e(event.street)}<br>${e(event.city)}</span></address><a class="btn btn-secondary" href="${e(event.mapsUrl)}" target="_blank" rel="noopener noreferrer"><span>Anfahrt<span class="hide-sm"> öffnen</span></span> <span class="ico">${arrow}</span></a></article>
         </div>
-        <figure class="details-photo" data-clip><div class="parallax"><img src="${e(media.exterior)}" srcset="${e(media.exteriorSmall)} 640w, ${e(media.exterior)} 1280w" sizes="(max-width: 800px) 92vw, 80vw" alt="Das Sayuko-Gebäude mit Eingang an der Friedhofstraße in Obrigheim" width="2048" height="1152" loading="lazy"></div><figcaption>Sayuko, Obrigheim</figcaption></figure>
+        <div class="aftermovie-pin"><figure class="details-photo event-keyvisual" data-clip><video class="aftermovie-video" muted playsinline preload="none" poster="assets/aftermovie-72-start-1280.webp" data-end-poster="assets/aftermovie-72-end-1280.webp" data-src="assets/aftermovie-72-1280.mp4" data-src-small="assets/aftermovie-72-720.mp4" width="1280" height="720" aria-label="Feuerwerk über dem beleuchteten Sayuko, am Himmel leuchtet die 72"></video><figcaption class="event-keyvisual-copy"><p><time datetime="${e(event.date)}">${e(dayNumber)}. ${e(month)} ${e(year)}</time> · ab ${e(event.time)} Uhr</p><h3>Für einen unvergesslichen Abend fehlt nur noch eure Zusage.</h3><p class="event-keyvisual-line">Kommt vorbei und genießt eine gute Zeit im Kreis wunderbarer Menschen. Wir freuen uns auf jeden Einzelnen von euch.</p><a class="btn btn-primary" href="#zusage">Wir kommen gern <span class="ico">${arrow}</span></a></figcaption></figure></div>
       </div>
     </section>
 
     <div class="journey" aria-hidden="true"><i></i></div>
     <section class="rsvp" id="zusage" aria-labelledby="rsvp-heading">
       <div class="wrap rsvp-inner" data-reveal-group>
-        <p class="eyebrow" data-reveal>Jetzt fehlt nur noch ihr.</p>
         <h2 id="rsvp-heading" data-reveal>${e(copy.closing)}</h2>
         <p class="rsvp-deadline" data-reveal>Bitte zusagen bis <time datetime="${e(event.rsvpDeadline)}">${e(deadlineFull)}</time></p>
         <div data-reveal>${rsvpButton}</div>

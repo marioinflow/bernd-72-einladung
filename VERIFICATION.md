@@ -149,3 +149,22 @@ Backup: `../bernd-72-before-journey-line-20260923.tar.gz`. 7 Verbinder `.journey
 - Backup `../bernd-72-before-intro-sprung-20260923.tar.gz`. Marios Bildschirmvideo 08:40: bei 5,8 bis 6,4 s zeigt die Überblendung die Seite ~450 px tief gescrollt (Hero-Text + „Der erste Grund“), bei 6,6 s Sprung nach oben. Ursache: iOS-Tastatur am Code-Feld hinterlässt Scroll-Versatz.
 - Fix `openIntro()`: Eingabefeld `blur()`, `scrollTo(0,0)` vor dem Intro und nach dem Seitenaufbau (inkl. Lenis `immediate`).
 - Geprüft 390 px mit simuliertem Versatz 450 px: scrollY während des ganzen Intros 0, Konsole 0, `npm run check` grün. Echter iPhone-Test offen.
+
+## 23.09. Abschluss: Event-Karten und Sayuko-Key-Visual (lokal)
+- Backup `../bernd-72-before-details-cards-keyvisual-20260923.tar.gz`.
+- Die frühere Dreispalten-Übersicht ist durch vier asymmetrische Karten für Anlass, Beginn, Abendstimmung und Ort ersetzt. Das Datum erhält die größte Karte; der Ort behält die Anfahrt.
+- Neues responsives Key-Visual `assets/sayuko-arrival-event-{640,1280}.webp`: aus der Original-Außenansicht als Abendmotiv erzeugt. Der reale Baukörper, die linke Gebäudeseite, Dächer, Fensteranordnung, Sayuko-Schild und Eingang wurden als feste Referenz vorgegeben; Datum und Uhrzeit liegen als zugänglicher HTML-Text darüber.
+- `npm run check` und `git diff --check` grün. Visuelle Abnahme auf Desktop und Mobil steht noch aus; nicht erneut deployed.
+
+## 23.09. Bestätigung nach Code-Eingabe (lokal)
+- Backup `../bernd-72-before-access-confirmation-20260923.tar.gz`.
+- Nach korrektem Code erscheint vor dem 72-Intro die reine Sayuko-Bildmarke (Sushi und Stäbchen, ohne Wortmarke) auf dunklem Rot. Darunter stehen getrennt „Come in.“ und „Feel at home.“. Die Marke wird mit einem einzelnen warmen Lichtimpuls eingeführt, danach startet unverändert die 72-Sequenz.
+- Reduzierte Bewegung: Bestätigung bleibt sichtbar, aber ohne Transform-Animation und mit kurzer Standzeit.
+- `npm run check` und `git diff --check` grün. Visuelle Abnahme auf Desktop und Mobil steht noch aus; nicht erneut deployed.
+
+## 23.09.2026 mittags: Aftermovie, Band, Cards, Scroll-Halt, Linkvorschau
+- Aftermovie (`assets/aftermovie-72-*.mp4`, delogo gegen KI-Wasserzeichen) ersetzt Außenbild, einmal lautlos, stoppt auf „72“; reduzierte Bewegung → Endbild. Playwright 390: 0 → 10,13 s, `ended`.
+- Scroll-Halt: `.aftermovie-pin` sticky + `::after`-Spacer (Padding zählt nicht). Gemessen: Figur hält bei 64 px (mobil) / 72 px (Desktop).
+- Band als Karte, 4 Cards einheitlich: 1440 → 298×302, 390 → 170×259, Wert-Oberkante überall gleich.
+- Kein horizontaler Überlauf bei 320/375/390/430/1280, Konsole ohne Fehler.
+- Linkvorschau neu: `assets/einladung-pepperls-og.jpg` aus `scripts/og-preview.html` (Hero-Look), altes Bild in `../_archive/`.

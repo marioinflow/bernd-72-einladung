@@ -1,0 +1,34 @@
+<!doctype html>
+<!-- Link preview (1200x630). Render with `npm run dev` running: screenshot at 1200x630 → assets/einladung-pepperls-og.jpg -->
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <style>
+    @font-face{font-family:Bodoni;src:url('http://127.0.0.1:4173/assets/fonts/bodoni-moda-caps.woff2') format('woff2');font-weight:400 900}
+    @font-face{font-family:Cormorant;src:url('http://127.0.0.1:4173/assets/fonts/cormorant-garamond-latin.woff2') format('woff2');font-weight:300 700}
+    *{box-sizing:border-box}html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#07090e}
+    .card{position:relative;width:100%;height:100%;overflow:hidden;isolation:isolate}
+    .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.55) saturate(.9);z-index:0}
+    .card::after{content:'';position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at 50% 38%,transparent 0%,#07090e99 70%),linear-gradient(0deg,#07090ef2 0%,transparent 34%)}
+    .title{position:absolute;z-index:3;left:0;right:0;top:34px;margin:0;text-align:center;font:400 150px/.82 Bodoni,serif;background:linear-gradient(170deg,#f7ecd0 0%,#e2c68e 38%,#b8955a 72%,#e9d4a3 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .invite{position:absolute;z-index:4;left:958px;top:122px;font:italic 300 30px/1 Cormorant,serif;color:#f0dfb6;text-shadow:0 2px 18px #000}
+    .family{position:absolute;z-index:2;left:50%;top:118px;width:690px;transform:translateX(-50%);filter:saturate(.8) contrast(1.08) brightness(.86) sepia(.08);-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 92%),linear-gradient(90deg,transparent 0%,#000 11%,#000 89%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,#000 55%,transparent 92%),linear-gradient(90deg,transparent 0%,#000 11%,#000 89%,transparent 100%);mask-composite:intersect}
+    .bottom{position:absolute;z-index:4;left:0;right:0;bottom:36px;text-align:center}
+    .sub{margin:0 0 12px;font:400 34px/1.1 Cormorant,serif;color:#f5f3ef;text-shadow:0 2px 18px #000}
+    .meta{margin:0;font:600 15px/1.4 Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#e2c68e}
+    .meta i{display:inline-block;width:5px;height:5px;margin:0 14px 3px;border-radius:50%;background:#e2c68e}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <img class="bg" src="http://127.0.0.1:4173/assets/hero-lounge-1264.webp" alt="">
+    <h1 class="title">PEPPERLS</h1>
+    <span class="invite">…&nbsp;laden ein</span>
+    <img class="family" src="http://127.0.0.1:4173/assets/familie-freigestellt-1152.webp" alt="">
+    <div class="bottom">
+      <p class="sub">Zu Bernds 72. Geburtstag</p>
+      <p class="meta">Samstag, 14. November · ab 18:00 Uhr<i></i>Sayuko, Obrigheim</p>
+    </div>
+  </main>
+</body>
+</html>

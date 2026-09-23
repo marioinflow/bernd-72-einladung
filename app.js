@@ -12,19 +12,48 @@ $('#access-form')?.addEventListener('submit', event => {
   event.preventDefault();
   const input = $('#access-code');
   const error = $('#access-error');
-  if (input.value !== 'Bernd72!') {
+  const code = input.value.replace(/\s+/g, '').toLocaleLowerCase('de-DE');
+  if (code !== 'bernd72!') {
     error.textContent = 'Der Code stimmt noch nicht. Bitte prüft eure WhatsApp-Nachricht.';
     input.setAttribute('aria-invalid', 'true');
     input.focus();
     return;
   }
   input.value = '';
-  openIntro();
+  openAccessConfirmation();
 });
 $('#access-code')?.addEventListener('input', event => {
   event.target.removeAttribute('aria-invalid');
   $('#access-error').textContent = '';
 });
+
+/* ---------- Confirmation: Sayuko mark opens the invitation ---------- */
+function openAccessConfirmation() {
+  const confirmation = $('.access-confirmation');
+  document.activeElement?.blur();
+  $('.access-gate').hidden = true;
+  document.body.classList.remove('is-locked');
+
+  if (!confirmation) { openIntro(); return; }
+  const mark = $('.access-confirmation-mark', confirmation);
+  const lines = $$('.access-confirmation-copy span', confirmation);
+  confirmation.hidden = false;
+  const finish = () => {
+    confirmation.hidden = true;
+    openIntro();
+  };
+
+  if (reducedMotion.matches || !hasGsap()) {
+    window.setTimeout(finish, 650);
+    return;
+  }
+
+  const { gsap } = window;
+  gsap.timeline({ onComplete: finish })
+    .fromTo(mark, { opacity: 0, scale: .92 }, { opacity: 1, scale: 1, duration: .56, ease: 'power3.out' })
+    .fromTo(lines, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: .46, ease: 'power3.out', stagger: .09 }, .32)
+    .to(confirmation, { opacity: 0, duration: .32, ease: 'power2.inOut' }, 1.42);
+}
 
 /* ---------- Intro: family moments briefly gather into 72 ---------- */
 const introTargets = [
@@ -179,6 +208,7 @@ function startPage() {
   setupRsvp();
   const slides = setupSlides();
   setupBand();
+  setupAftermovie();
   setupLightbox();
   setupHeader();
   glitter();
@@ -429,6 +459,22 @@ function setupBand() {
       video.play().catch(() => {});
     } else video.pause();
   }, { rootMargin: '150px 0px' }).observe(video);
+}
+
+// Aftermovie: starts once the section is reached, plays silently once and holds on the fireworks "72".
+function setupAftermovie() {
+  const video = $('.aftermovie-video');
+  if (!video) return;
+  if (reducedMotion.matches || !('IntersectionObserver' in window)) { video.poster = video.dataset.endPoster; return; }
+  new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      if (video.dataset.src) {
+        video.src = matchMedia('(max-width: 800px)').matches ? video.dataset.srcSmall : video.dataset.src;
+        delete video.dataset.src;
+      }
+      if (!video.ended) video.play().catch(() => {});
+    } else video.pause();
+  }, { threshold: .5 }).observe(video);
 }
 
 /* ---------- Lightbox: 1:1 drag, flick to change, pull down to close ---------- */
