@@ -12,6 +12,7 @@ const server = http.createServer(async (req, res) => {
   res.setHeader('X-Robots-Tag', 'noindex, nofollow, noarchive, noimageindex');
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('Referrer-Policy', 'no-referrer');
+  res.setHeader('Cache-Control', 'no-store'); // preview only: phones must always get the newest build
   try {
     const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
     const file = path.resolve(root, `.${pathname === '/' ? '/index.html' : pathname}`);

@@ -1,6 +1,6 @@
 # Bernds 72. Geburtstag – Einladungswebsite
 
-Eigenständige statische One-Page. Keine Datenbank, kein Tracking, keine extern geladenen Schriften. Die bestehende Sayuko-Materialsammlung und das Remotion-Projekt bleiben erhalten. Bisher nicht veröffentlicht.
+Eigenständige statische One-Page. Keine Datenbank, kein Tracking, keine extern geladenen Schriften. Die bestehende Sayuko-Materialsammlung und das Remotion-Projekt bleiben erhalten. Live unter https://bernd-72-einladung.vercel.app (Stand und Regeln: `HANDOFF.md`).
 
 Die Komponente `components/logo-bloom.js` (`<logo-bloom src="…" label="…">`) zeichnet eine Vogel-Phyllotaxis nach 21st.dev „Phyllotaxis Bloom“ (MIT): kleine Sayuko-Logos im Zentrum, Punkte von Koralle zu Gold. Maus steuert Dichte und Weite, auf Touch-Geräten der Scroll; Klick, Enter oder Leertaste senden einen Impuls. Läuft nur im sichtbaren Bereich, bei reduzierter Bewegung statisch. Scroll-Effekte: GSAP + ScrollTrigger + Lenis, lokal unter `vendor/`.
 
@@ -34,11 +34,7 @@ Der Befehl prüft JavaScript-Syntax und baut die statische Seite. Browserprüfun
 
 ## WhatsApp-Zusage
 
-Der Kontakt ist noch nicht bestätigt. Daher stehen `rsvp.phone` auf `null` und `rsvp.confirmed` auf `false`; es gibt keinen WhatsApp-Link. Die mobile Leiste führt zum Zusageabschnitt.
-
-Erst nach ausdrücklicher Bestätigung der RSVP-Nummer: die internationale Telefonnummer mit führendem `+` und ohne Leerzeichen in `rsvp.phone` eintragen und `rsvp.confirmed` auf `true` setzen. Anschließend neu bauen. Die Restaurantnummer darf nicht automatisch übernommen werden.
-
-Die Funktion öffnet WhatsApp mit einer vorbereiteten Nachricht. Die Gäste ergänzen Name und Personenzahl und senden die Nachricht dort selbst. Die Website erfasst keine Zusagen und zeigt keine Erfolgsbestätigung.
+Aktiv seit 23.09.2026 (Nummer von Mario freigegeben): `rsvp.phone` = `+491748207000`, `rsvp.confirmed` = `true`. Gäste wählen „allein“ oder „zu zweit“, tragen Namen ein, und `setupRsvp()` in `app.js` öffnet WhatsApp mit fertiger Nachricht an Bernd. Die Website speichert und sendet nichts, die Gäste schicken die Nachricht in WhatsApp selbst ab. Nummer ändern: `rsvp.phone` (international, mit `+`, ohne Leerzeichen) und neu bauen. `confirmed: false` schaltet den Button wieder ab.
 
 ## Verwendetes Material
 
@@ -50,7 +46,8 @@ Die Funktion öffnet WhatsApp mit einer vorbereiteten Nachricht. Die Gäste erg�
 | Sushi | `../Sayuko/Projekt/public/fotos/sushi-quer2.jpg`. |
 | Ambiente | Neuzugang vom 22.09.: `WhatsApp Image 2026-09-22 at 20.31.15 (3).jpeg`. |
 | Außenansicht | `../Sayuko/Projekt/public/fotos/aussen.jpg`. |
-| Eventfilm | Neuzugang `WhatsApp Video 2026-09-22 at 20.31.16 (1).mp4`, als 53-Sekunden-Webfassung `assets/sayuko-events.mp4` mit 480 × 848 Pixeln exportiert. Das Video enthält die Originaltonspur, ist aber standardmäßig stumm und startet erst nach Klick. Der goldene Vorhang aus dem angehängten Vorschaubild ist der erste Frame. Quelle bleibt erhalten. |
+| Diashow Einblicke | Ersetzt seit 23.09. den Eventfilm (Film + Teaser in `../_archive/bernd-72-unused-assets/`). 6 Bilder aus `~/Downloads/Sayuko_Bilder_Update`, als `assets/sayuko-dia-<name>-600/900.webp` (3:4), Reihenfolge und Alt-Texte in `content.json` `media.slides`. Weiche Überblendung mit Ken-Burns, läuft nur im Sichtbereich, Pause-Knopf, bei reduzierter Bewegung erst auf Tipp. |
+| Fabian | `assets/fabian-sushi-640/1040.webp` (Bild 63202765, nur zugeschnitten) ersetzt das Ambiente-Foto in „01 · Der Ort“. |
 | Live-Band-Hintergrund | Pexels-Video [„A Music Band Performing on Stage“](https://www.pexels.com/video/a-music-band-performing-on-stage-8041841/) von Tima Miroshnichenko. Gemäß [Pexels-Lizenz](https://www.pexels.com/license/) kostenlos nutzbar und bearbeitbar. Für die Website stumm, schwarz-weiß, weichgezeichnet und auf 1280 × 674 Pixel optimiert; Original unter `../Sayuko/Originalmaterial/Bernd-Geburtstag/external/pexels-8041841-original.mp4`. |
 | Schrift | Cormorant Garamond, Google Fonts, lokal gespeicherter lateinischer WOFF2-Subset; Lizenz unter `assets/fonts/OFL.txt`. Sans-Serif nutzt die Systemschrift. |
 
@@ -58,7 +55,7 @@ Die persönlichen Originale sind dauerhaft unter `../Sayuko/Originalmaterial/Ber
 
 Die vorhandenen fertigen REWE-/Feier-Filme wurden geprüft. Sie enthalten Verkaufsbotschaften, Weihnachtsfeier-Werbung und eine Restaurant-Anfragenummer. Deshalb zeigt die private Einladung den Eventfilm als Einblick in frühere Sayuko-Veranstaltungen. Frühere Veranstaltungsdekoration wird nicht als zugesagtes Geburtstagsprogramm dargestellt.
 
-Der neue Textabschnitt erklärt in Bernds persönlicher Stimme, dass der 14. November zugleich drei Jahre seit der Adoption von Fabian markiert. Die Beschreibung von Fabians Sayuko-Arbeit bleibt bei den im Material belegten Bereichen: Sushi, Buffet/Fingerfood, Catering, Sushi-Kurse, private Feiern und Firmenveranstaltungen. Das vom Nutzer beschriebene Foto mit Fabian in roter Schürze ist noch nicht als zugängliche Datei bestätigt und wird daher nicht erfunden oder durch ein anderes Fabian-Foto ersetzt.
+Der neue Textabschnitt erklärt in Bernds persönlicher Stimme, dass der 14. November zugleich drei Jahre seit der Adoption von Fabian markiert. Das Sayuko wird seit der Copy-Überarbeitung (23.09.) nur noch als Fabians Restaurant beschrieben, ohne Leistungskatalog. Das vom Nutzer beschriebene Foto mit Fabian in roter Schürze ist noch nicht als zugängliche Datei bestätigt und wird daher nicht erfunden oder durch ein anderes Fabian-Foto ersetzt.
 
 Die früheren Luxury-Einladungsbilder waren in der alten Aufgabe erwähnt, aber nicht als zugängliche Bilddateien vorhanden. Der Webentwurf folgt deshalb der ausdrücklich beschriebenen Schwarz-Gold-Richtung. Die neue Linkvorschau wird passend zur Website mit dem vorhandenen Porträt gesetzt; sie ist keine Kopie einer wiedergefundenen Einladungsvorlage. Der Claim „Come in. Feel at home.“ wurde mangels Bestätigung nicht verwendet.
 
