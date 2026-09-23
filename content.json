@@ -1,0 +1,110 @@
+{
+  "title": "Einladung zu Bernds 72. Geburtstag",
+  "description": "14. November ab 18:00 Uhr im Sayuko in Obrigheim. Bitte bis 15. Oktober zusagen.",
+  "publicUrl": "https://bernd-72-einladung.vercel.app/",
+  "event": {
+    "name": "Bernds 72. Geburtstag",
+    "date": "2026-11-14",
+    "time": "18:00",
+    "timezone": "Europe/Berlin",
+    "rsvpDeadline": "2026-10-15",
+    "location": "Sayuko – The Sushi Lounge",
+    "street": "Friedhofstraße 26",
+    "city": "74847 Obrigheim",
+    "mapsUrl": "https://maps.app.goo.gl/SLkB1q6gAYtUqs7XA?g_st=ic",
+    "band": "Pinball Wizard"
+  },
+  "rsvp": {
+    "phone": null,
+    "confirmed": false,
+    "message": "Hallo, wir sind gerne bei Bernds 72. Geburtstag am 14. November dabei. Wir kommen mit [Anzahl] Personen. Liebe Grüße, [Name]"
+  },
+  "copy": {
+    "invitation": "Wir laden euch herzlich zu Bernds 72. Geburtstag ein.",
+    "togetherHeading": "Das Schönste ist, zusammen zu sein.",
+    "together": "Freut euch auf gutes Essen, gute Gespräche und beste Gesellschaft.",
+    "personal": "Wir freuen uns darauf, diesen besonderen Abend mit euch zu verbringen.",
+    "adoptionLabel": "Ein besonderer Tag für uns beide",
+    "adoptionHeading": "Drei Jahre Vater und Sohn.",
+    "adoptionQuote": "An diesem Tag feiern wir nicht nur meinen 72. Geburtstag. Genau vor drei Jahren habe ich Fabian adoptiert. Drei Jahre Vater-Sohn-Geschichte\u00a0– das ist für mich ein weiterer, ganz besonderer Grund\u00a0zu feiern.",
+    "adoptionRestaurant": "Dass wir diesen Abend im Restaurant meines Sohnes verbringen, bedeutet mir viel. Ich bin Fabian sehr dankbar und freue mich darauf, mit euch an diesem besonderen Ort zu feiern.",
+    "adoptionAttribution": "Bernd",
+    "galleryLabel": "Ein paar gemeinsame\u00a0Erinnerungen",
+    "galleryHeading": "Momente, die bleiben.",
+    "galleryText": "Bilder aus vielen schönen Jahren, unterwegs und mitten im Leben.",
+    "venueHeading": "Ein Abend im Sayuko.",
+    "venueText": "Fabian macht das Sayuko zu einem Ort für gutes Essen und gemeinsame Erlebnisse: mit Sushi, Buffet und Fingerfood, Catering, Sushi-Kursen sowie privaten Feiern und\u00a0Firmenveranstaltungen.",
+    "music": "Musikalisch begleitet uns die Band ‚Pinball Wizard‘.",
+    "closing": "Schön, wenn ihr dabei\u00a0seid!",
+    "rsvpPending": "Die Zusage per WhatsApp wird in Kürze freigeschaltet.",
+    "rsvpNotice": "WhatsApp öffnet sich mit einer vorbereiteten Nachricht. Bitte ergänzt eure Namen und Personenzahl und sendet die Nachricht dort ab."
+  },
+  "media": {
+    "portrait": "assets/bernd-wasserturm-1054.webp",
+    "portraitSmall": "assets/bernd-wasserturm-640.webp",
+    "loginBanner": "assets/login-banner.jpg",
+    "hero": "assets/hero-pepperl.jpg",
+    "family": "assets/familie-1000.webp",
+    "familySmall": "assets/familie-600.webp",
+    "together": "assets/galerie-feier-aussen-1280.webp",
+    "togetherSmall": "assets/galerie-feier-aussen-640.webp",
+    "fatherSon": "assets/vater-sohn-1280.webp",
+    "fatherSonSmall": "assets/vater-sohn-640.webp",
+    "logo": "assets/sayuko-logo.png",
+    "video": "assets/sayuko-events.mp4",
+    "videoPoster": "assets/sayuko-events-poster.jpg",
+    "bandBackground": "assets/live-band-background.mp4",
+    "bandBackgroundPoster": "assets/live-band-background.jpg",
+    "food": "assets/sushi-1280.webp",
+    "foodSmall": "assets/sushi-640.webp",
+    "room": "assets/ambiente-1280.webp",
+    "roomSmall": "assets/ambiente-640.webp",
+    "exterior": "assets/aussen-1280.webp",
+    "exteriorSmall": "assets/aussen-640.webp",
+    "socialPreview": "assets/einladung-bernd-72-wasserturm.jpg"
+  },
+  "gallery": [
+    {
+      "src": "assets/galerie-bernd-pool-1200.webp",
+      "small": "assets/galerie-bernd-pool-640.webp",
+      "width": 1200,
+      "height": 1600,
+      "alt": "Bernd lächelt mit Sonnenbrille und einem Glas in der Hand"
+    },
+    {
+      "src": "assets/galerie-am-meer-1280.webp",
+      "small": "assets/galerie-am-meer-640.webp",
+      "width": 1280,
+      "height": 960,
+      "alt": "Bernd und seine Frau gemeinsam an der Küste"
+    },
+    {
+      "src": "assets/galerie-cafe-1280.webp",
+      "small": "assets/galerie-cafe-640.webp",
+      "width": 1280,
+      "height": 960,
+      "alt": "Bernd und seine Frau lachen gemeinsam in einem Café"
+    },
+    {
+      "src": "assets/galerie-camping-1280.webp",
+      "small": "assets/galerie-camping-640.webp",
+      "width": 1280,
+      "height": 964,
+      "alt": "Bernd entspannt mit einem Glas auf einem Campingplatz"
+    },
+    {
+      "src": "assets/galerie-berge-1200.webp",
+      "small": "assets/galerie-berge-640.webp",
+      "width": 1200,
+      "height": 1600,
+      "alt": "Bernd und seine Frau bei einem gemeinsamen Ausflug in den Bergen"
+    },
+    {
+      "src": "assets/galerie-feier-innen-1280.webp",
+      "small": "assets/galerie-feier-innen-640.webp",
+      "width": 1280,
+      "height": 960,
+      "alt": "Bernd und seine Frau bei einer Feier"
+    }
+  ]
+}
